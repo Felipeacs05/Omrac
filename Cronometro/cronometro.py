@@ -7,30 +7,23 @@ from datetime import datetime
 class Cronometro(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        # Carregar a interface do arquivo .ui
         uic.loadUi("cronometro.ui", self)
 
-        # Variáveis do cronômetro
         self.tempo_segundos = 0
         self.esta_rodando = False
 
-        # Configurar os elementos da interface
-        # Agora usamos diretamente os nomes definidos no QtDesigner
         self.label_tempo.setText("00:00:00")
         self.botao_pausar.setEnabled(False)
 
-        # Conectar os botões às funções
         self.botao_iniciar.clicked.connect(self.iniciar_cronometro)
         self.botao_pausar.clicked.connect(self.pausar_cronometro)
 
-        # Timer para atualizar o cronômetro
         self.timer = QTimer()
         self.timer.timeout.connect(self.atualizar_tempo)
 
-        # Configuração do banco de dados
         self.db_config = {
             'user': 'root',
-            'password': '34863794',  # Ajuste se tiver senha
+            'password': '34863794', 
             'host': '127.0.0.1',
             'port': '3306',
             'database': 'contadordetempo'
@@ -39,7 +32,7 @@ class Cronometro(QtWidgets.QMainWindow):
     def iniciar_cronometro(self):
         if not self.esta_rodando:
             self.esta_rodando = True
-            self.timer.start(1000)  # Atualiza a cada 1 segundo
+            self.timer.start(1000)  
             self.botao_iniciar.setEnabled(False)
             self.botao_pausar.setEnabled(True)
 
