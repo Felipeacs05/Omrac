@@ -23,7 +23,7 @@ class Cronometro(QtWidgets.QMainWindow):
 
         self.db_config = {
             'user': 'root',
-            'password': '34863794', 
+            'password': 'senha123', 
             'host': '127.0.0.1',
             'port': '3306',
             'database': 'contadordetempo'
